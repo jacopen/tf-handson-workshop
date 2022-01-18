@@ -19,6 +19,10 @@ resource "google_compute_instance" "vm_instance" {
     count = var.hello_tf_instance_count
     machine_type = var.machine_type
     zone = "asia-northeast1-a"
+  labels = {
+    owner = "me",
+    ttl   = "100"
+  }
     boot_disk {
         initialize_params {
             image = var.image
